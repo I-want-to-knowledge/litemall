@@ -1,5 +1,5 @@
-# 编译：docker build -t yz/litemall-vue:v0.1.1 -f Dockerfile .
-# 构建：docker service create --network ht_net_pub --name litemall-vue -p 6255:6255 -d yz/litemall-vue:v0.1.1
+# 编译：docker build -t yz/litemall-admin:v0.1.0 -f Dockerfile .
+# 构建：docker service create --network ht_net_pub --name litemall-admin -p 9527:9527 -d yz/litemall-admin:v0.1.0
 
 # 基于node镜像来构建我们的前端环境
 FROM dockerpull.com/node:latest as build-stage
@@ -26,7 +26,7 @@ FROM dockerpull.com/nginx:latest as production-stage
 COPY --from=build-stage /usr/app/dist /usr/share/nginx/html
 
 # 暴露80端口
-EXPOSE 6255
+EXPOSE 9527
 
 # 启动nginx，并且nginx将持续运行
 CMD ["nginx", "-g", "daemon off;"]

@@ -31,7 +31,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/admin': {
-        target: 'http://localhost:8080'
+        target: 'http://litemall-all:8080'
       },
     },
     port: port,
